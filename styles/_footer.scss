@@ -1,0 +1,105 @@
+.footer {
+   background-color: $darkBlue;
+   color: $white;
+   text-align: center;
+   padding: 40px;
+
+   .container {
+      @include breakpoint-up(large) {
+         display: grid;
+         grid-template-columns: 3fr 2fr 2fr 3fr;
+         grid-template-areas:
+            "logo links1 links2 cta"
+            "social links1 links2 copyright";
+      }
+   }
+
+   &__logo {
+      @include breakpoint-down(medium) {
+         margin-bottom: 25px;
+         display: inline-block;
+      }
+
+      @include breakpoint-up(large) {
+         grid-area: logo;
+         text-align: left;
+      }
+   }
+
+   &__social {
+      @include breakpoint-down(medium) {
+         margin-bottom: 25px;
+      }
+
+      @include breakpoint-up(large) {
+         grid-area: social;
+         align-self: flex-end;
+         display: flex;
+         gap: 20px;
+      }
+      a:hover svg path{
+         fill: $limeGreen;
+      }
+   }
+
+   &__cta {
+      @include breakpoint-down(medium) {
+         margin-bottom: 25px;         
+      }
+      
+      @include breakpoint-up(large) {
+         grid-area: cta;
+         display: flex;
+         justify-content: flex-end;         
+      }
+   }
+
+   &__copyright {
+      font-size: 12px;
+      @include breakpoint-down(medium) {
+         margin-bottom: 25px;
+         text-align: center;
+      }
+
+      @include breakpoint-up(large) {
+         grid-area: copyright;
+         align-self: flex-end;
+         text-align: end;
+      }
+   }
+
+   &__links {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      a {
+         color: $white;
+         transition: .3s;
+         &:hover{
+            color:$limeGreen
+         }
+      }
+
+      &.col1 {
+         @include breakpoint-down(medium) {
+            margin-bottom: 25px;
+         }
+
+         @include breakpoint-up(large) {
+            grid-area: links1;
+         }
+      }
+
+      &.col2 {
+         @include breakpoint-down(medium) {
+            margin-bottom: 25px;
+         }
+
+         @include breakpoint-up(large) {
+            grid-area: links2;
+         }
+      }
+   }
+
+}

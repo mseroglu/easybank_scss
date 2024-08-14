@@ -1,0 +1,62 @@
+.hero{
+   background-color: $veryLightGray;
+   .container{
+      @include breakpoint-up(large){
+         display: flex;
+      }
+   }
+   &__image{
+      background-image: url("../images/bg-intro-mobile.svg");
+      min-height: 17.5rem;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      @include breakpoint-up(medium){
+         min-height: 25rem;
+         background-position: center 70%;
+      }
+      @include breakpoint-up(large){
+         flex: 3;
+         order: 2;
+         height: 41rem;
+      }
+      &::before{
+         @include breakpoint-up(large){
+            content: "";
+            position: absolute;
+            background-image: url("../images/bg-intro-desktop.svg");
+            width: 100%;
+            height: 100%;
+            background-size: 155%;
+            background-position: 0% 83%;
+            background-repeat: no-repeat;
+         }
+      }
+      &::after{
+         content: "";
+         position: absolute;
+         background-image: url("../images/image-mockups.png");
+         width: 100%;
+         height: 100%;
+         background-repeat: no-repeat;
+         background-size: 50%;
+         background-position: center center;
+         
+         @include breakpoint-up(medium){
+            background-size: 35%;
+         }
+         @include breakpoint-up(large){
+            background-size: 60%;
+         }
+      }
+   }
+   &__text{
+      text-align: center;
+      @include breakpoint-up(large){
+         flex: 2;
+         order:1;
+         text-align: left;
+      }
+   }
+}
